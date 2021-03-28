@@ -1,15 +1,16 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <KTMethod />
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import KTMethod from "./components/KTMethod";
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    KTMethod
   }
 }
 </script>
