@@ -13,7 +13,7 @@
         <tr v-for="item in data.parameter" :key="item">
           <td>{{item.param}}</td>
           <td>{{item.utez}}</td>
-          <td>{{item.utez*item.point}}</td>
+          <td v-for="item1 in item.point" :key="item1">{{item.utez*item1}}</td>
         </tr>
       </tbody>
     </table>
