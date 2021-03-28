@@ -15,6 +15,18 @@
             placeholder="Zapišite parametre"
             v-model="parameter"
           />
+          <input
+            class="form-control"
+            type="text"
+            placeholder="Zapišite uteži"
+            v-model="weight"
+          />
+          <input
+            class="form-control"
+            type="text"
+            placeholder="Zapišite točke"
+            v-model="point"
+          />
         </div>
       </div>
       <div class="col-12 col-lg-2 mt-4">
@@ -30,7 +42,7 @@
 </template>
 
 <script>
-import Graph from "./Graph";
+import Graph from "./Table";
 import MethodKT from "../functions/MethodKT.js";
 
 export default {
@@ -43,12 +55,14 @@ export default {
       data: [],
       alternative: [],
       parameter: [],
+      weight: [],
+      point: [],
     };
   },
   methods: {
     submitFile() {
-      let arr = MethodKT.OrganizeData(this.alternative, this.parameter);
-      const methodKT = new MethodKT(arr[0], arr[1])
+      let arr = MethodKT.OrganizeData(this.alternative, this.parameter, this.weight, this.point);
+      const methodKT = new MethodKT(arr[0], arr[1], arr[2])
       this.data = methodKT;
       console.log(methodKT)
     },
