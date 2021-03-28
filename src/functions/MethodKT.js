@@ -17,6 +17,10 @@ export default class MethodKT {
         this.weight_and_points = weight_and_points;
     }
     static OrganizeData(alternative, parameter, weight, point) {
+        let nameArr = [];
+        if(point.length > 0) {
+            nameArr = point.split(',');
+        }
         let togetherArray = [];
         if (alternative.length > 0) {
             this.count++;
@@ -27,7 +31,7 @@ export default class MethodKT {
         if (parameter.length > 0) {
             this.count1++;
             //this.paramArray.push(this.count1);
-            const parameterObj = new Parameter(parameter, weight, point);
+            const parameterObj = new Parameter(parameter, weight, nameArr);
             this.paramArray.push(parameterObj);
         }
         if (weight.length > 0) {
