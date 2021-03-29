@@ -6,10 +6,10 @@ export default class MethodKT {
     static altArray = [];
     static paramArray = [];
     static weightArray = [];
-    static count = 0;
-    static count1 = 0;
-    static mainCount = 0;
-    constructor(alternative, parameter, weight, point, weight_and_points){
+    static sumArray = [];
+    static tempArray = [];
+    static normArray = [];
+    constructor(alternative, parameter, weight, point, weight_and_points) {
         this.alternative = alternative;
         this.parameter = parameter;
         this.weight = weight;
@@ -18,34 +18,46 @@ export default class MethodKT {
     }
     static OrganizeData(alternative, parameter, weight, point) {
         let nameArr = [];
-        if(point.length > 0) {
+        if (point.length > 0) {
             nameArr = point.split(',');
         }
         let togetherArray = [];
         if (alternative.length > 0) {
-            this.count++;
-            //this.altArray.push(this.count);
             const alternativeObj = new Alternative(alternative);
             this.altArray.push(alternativeObj);
         }
         if (parameter.length > 0) {
-            this.count1++;
-            //this.paramArray.push(this.count1);
             const parameterObj = new Parameter(parameter, weight, nameArr);
             this.paramArray.push(parameterObj);
         }
         if (weight.length > 0) {
-            this.count1++;
-            //this.paramArray.push(this.count1);
             const weightObj = new Weight(weight);
             this.weightArray.push(weightObj);
         }
-        console.log(this.altArray);
-        console.log(this.paramArray);
-        //togetherArray.push(this.mainCount++);
         togetherArray.push(this.altArray);
         togetherArray.push(this.paramArray);
         togetherArray.push(this.weightArray);
         return togetherArray;
+    }
+    static SumAndFindMaxValue(point, check, weight) {
+        let we = weight;
+        if (point.length > 0) {
+            let nameArr = point.split(',');
+            nameArr.forEach(element => {
+                if (check === false) {
+                    this.tempArray.push(parseInt(element * we));
+                }
+                else if (check === true) {
+                    this.sumArray.push(parseInt(element * we));
+                }
+            });
+            var squares = this.sumArray.map((a, i) => a + this.tempArray[i]);
+            console.log(squares);
+            if(check === true) {
+                this.sumArray = [];
+                this.tempArray = squares;
+            }
+        }
+        return squares;
     }
 }
