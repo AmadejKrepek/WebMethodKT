@@ -13,7 +13,19 @@
         <tr v-for="item in data.parameter" :key="item">
           <td>{{item.param}}</td>
           <td>{{item.utez}}</td>
-          <td v-for="item1 in item.point" :key="item1">{{item.utez*item1}}</td>
+          <td v-for="item1 in item.point" :key="item1">{{item1}}</td>
+        </tr>
+        <tr>
+          <td>Result:</td>
+          <td></td>
+          <td v-for="item in result" :key="item">
+            <div v-if="Math.max(...result) === item">
+              <b>{{item}}</b>
+            </div>
+            <div v-else>
+              {{item}}
+            </div>
+          </td>
         </tr>
       </tbody>
     </table>
@@ -33,7 +45,9 @@ export default {
         };
     },
     props: {
-        data: Object
+        data: Object,
+        result: Array,
+        maxValue: Number,
     }
 }
 </script>
