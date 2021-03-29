@@ -67,6 +67,7 @@ export default {
       let arr = MethodKT.OrganizeData(this.alternative, this.parameter, this.weight, this.point);
       const methodKT = new MethodKT(arr[0], arr[1], arr[2])
       this.result = MethodKT.SumAndFindMaxValue(this.point, this.check, this.weight);
+      MethodKT.ParameterAndWeight(this.parameter, this.weight);
       this.data = methodKT;
     },
     Verify() {

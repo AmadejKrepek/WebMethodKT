@@ -8,7 +8,7 @@ export default class MethodKT {
     static weightArray = [];
     static sumArray = [];
     static tempArray = [];
-    static normArray = [];
+    static togaArray = [];
     constructor(alternative, parameter, weight, point, weight_and_points) {
         this.alternative = alternative;
         this.parameter = parameter;
@@ -59,5 +59,12 @@ export default class MethodKT {
             }
         }
         return squares;
+    }
+    static ParameterAndWeight(param, weight) {
+        if (param.length > 0 && weight.length > 0) {
+            const parameter = new Parameter(param, weight);
+            this.togaArray.push(parameter);
+            console.log(this.togaArray);
+        }
     }
 }
