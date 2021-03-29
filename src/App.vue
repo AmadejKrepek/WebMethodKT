@@ -7,6 +7,7 @@
 <script>
 import KTMethod from "./components/KTMethod";
 
+
 export default {
   name: 'App',
   components: {
