@@ -1,5 +1,6 @@
 import Alternative from "./Alternative.js";
 import Parameter from "./Parameter.js";
+import Series from "./Series.js";
 import Weight from "./Weight.js";
 
 export default class MethodKT {
@@ -125,10 +126,11 @@ export default class MethodKT {
             arr = new Array();
             for (let k = 0; k < 10; k++) {
                 arr.push(itemArray[i]*k);
-            }            
-            computedArray.push(arr);
+            }       
+            computedArray.push(new Series(arr, this.altTitle[i]));
         }
-
         console.log(computedArray);
+
+        return computedArray;
     }
 }
