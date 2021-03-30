@@ -1,7 +1,7 @@
 <template>
 <div>
     <table class="table" ref="table">
-      <thead>
+      <thead class="thead-dark">
         <tr>
           <th scope="col">Parameter</th>
           <th scope="col">Utež</th>
@@ -18,12 +18,12 @@
           <td><span v-if="checkMax === true">Result:</span></td>
           <td></td>
           <td v-for="item in result" :key="item">
-            <div v-if="Math.max(...result) === item">
+            <span v-if="Math.max(...result) === item">
               <b>{{item}}</b>
-            </div>
-            <div v-else>
+            </span>
+            <span v-else>
               {{item}}
-            </div>
+            </span>
           </td>
         </tr>
       </tbody>
