@@ -9,7 +9,7 @@ export default function createChart(chartId, values, labels, label, borderColor,
             {
                 label: label,
                 data: values,
-                fill: false,
+                fill: true,
                 borderColor: borderColor,
                 pointRadius: 0,
             },
