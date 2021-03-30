@@ -1,6 +1,11 @@
 <template>
   <div class="container">
-    <div class="row">
+  <div class="row">
+    <div class="col-12 col-lg-12 mt-3">
+      <h1>Kalkulator metode Kepner-Tregoe (K-T)</h1>
+    </div>
+  </div>
+    <div class="row mt-4">
       <div class="col-12 col-lg-3">
         <div class="form-group">
           <input
@@ -29,7 +34,7 @@
           />
         </div>
       </div>
-      <div class="col-12 col-lg-4 mt-4">
+      <div class="col-12 col-lg-4 mt-1">
         <button class="btn btn-success" v-on:click="submitFile()">Submit</button>
         <button class="btn btn-success ml-3" v-on:click="Verify()">Calculate</button>
         <button class="btn btn-success ml-3" v-on:click="Generate()">
@@ -43,6 +48,11 @@
           placeholder="Izberite si parameter"
           v-model="paramSelector"
         />
+      </div>
+    </div>
+    <div class="row mt-2">
+      <div class="col-12 col-lg-12">
+          <p>Tabelarični prikaz podatkov</p>
       </div>
     </div>
     <div class="row">
@@ -117,16 +127,6 @@ export default {
           categories: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
         },
       },
-      series: [
-        {
-          name: "series-1",
-          data: [30, 40, 35, 50, 49, 60, 70, 91],
-        },
-        {
-          name: "series-1",
-          data: [10, 70, 35, 50, 49, 60, 70, 91],
-        },
-      ],
     };
   },
   methods: {
@@ -141,7 +141,7 @@ export default {
       this.result = MethodKT.SumAndFindMaxValue(this.point, this.check, this.weight);
       MethodKT.ParameterAndWeight(this.parameter, this.weight);
       this.data = methodKT;
-      //Clear all values
+      //Clear all values after submitting button
       this.alternative = "";
       this.parameter = "";
       this.weight = "";
@@ -156,7 +156,6 @@ export default {
       this.paramArr = MethodKT.GetParamArray();
       this.paramTitle = MethodKT.GetParamTitle();
       this.seriesData = MethodKT.SelectedParam(this.paramSelector);
-      console.log(this.seriesData);
       this.gen = true;
     },
   },
