@@ -70,7 +70,7 @@
           :borderColor="'rgb(77, 39, 107)'"
           :type="'pie'"
         />
-        <h3 class="mt-4">Prikaz občutljivost izbranega parametra</h3>
+        <h3 class="mt-4">Prikaz občutljivosti izbranega parametra</h3>
         <apexchart
           type="line"
           :options="chartOptions"
@@ -114,7 +114,7 @@ export default {
           id: "vuechart-example",
         },
         xaxis: {
-          categories: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+          categories: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
         },
       },
       series: [
@@ -141,6 +141,11 @@ export default {
       this.result = MethodKT.SumAndFindMaxValue(this.point, this.check, this.weight);
       MethodKT.ParameterAndWeight(this.parameter, this.weight);
       this.data = methodKT;
+      //Clear all values
+      this.alternative = "";
+      this.parameter = "";
+      this.weight = "";
+      this.point = "";
     },
     Verify() {
       this.check = true;
