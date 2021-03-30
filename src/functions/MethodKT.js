@@ -108,23 +108,10 @@ export default class MethodKT {
 
         console.log(itemArray);
         let arr = null;
-                /*
-        for (let index = 0; index <= 10; index++) {
-            for (let i = 0; i < itemArray.length; i++) {
-                if(index === 0) {
-                    arr = new Array();
-                }
-                arr.push(itemArray[i]*index);
-                if(index === 10) {
-                    computedArray.push(arr);
-                }
-            }
-        }
-        */
 
         for (let i = 0; i < itemArray.length; i++) {
             arr = new Array();
-            for (let k = 0; k < 10; k++) {
+            for (let k = 1; k <= 10; k++) {
                 arr.push(itemArray[i]*k);
             }       
             computedArray.push(new Series(arr, this.altTitle[i]));
