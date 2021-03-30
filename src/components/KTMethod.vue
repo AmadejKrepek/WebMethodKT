@@ -5,7 +5,7 @@
       <h1>Kalkulator metode Kepner-Tregoe (K-T)</h1>
     </div>
   </div>
-    <div class="row mt-4">
+    <div class="row mt-4 bg-light p-4 border border-primary rounded">
       <div class="col-12 col-lg-3">
         <div class="form-group">
           <input
@@ -34,7 +34,7 @@
           />
         </div>
       </div>
-      <div class="col-12 col-lg-4 mt-1">
+      <div class="col-12 col-lg-5 mt-1">
         <button class="btn btn-success" v-on:click="submitFile()">Submit</button>
         <button class="btn btn-success ml-3" v-on:click="Verify()">Calculate</button>
         <button class="btn btn-success ml-3" v-on:click="Generate()">
