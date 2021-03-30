@@ -4,7 +4,6 @@ export const settings = {
       datasets: [{
         label: null,
         data: null,
-        fill: false,
         pointRadius: 0,
       }]
     },
