@@ -51,7 +51,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-12 col-lg-12" v-if="gen === true">
+      <div class="col-12 col-lg-12 mt-2" v-if="gen === true">
         <h3>Primerjava alternativ</h3>
         <WindGraph
           :data="altArr"
@@ -61,7 +61,7 @@
           :borderColor="'rgb(23, 79, 45)'"
           :type="'pie'"
         />
-        <h3>Parametri</h3>
+        <h3 class="mt-4">Parametri</h3>
         <WindGraph
           :data="paramArr"
           :labels="paramTitle"
@@ -70,7 +70,7 @@
           :borderColor="'rgb(77, 39, 107)'"
           :type="'pie'"
         />
-        <h3>Prikaz občutljivost izbranega parametra</h3>
+        <h3 class="mt-4">Prikaz občutljivost izbranega parametra</h3>
         <apexchart
           type="line"
           :options="chartOptions"
