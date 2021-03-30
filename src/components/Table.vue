@@ -1,6 +1,5 @@
 <template>
 <div>
-{{data}}
     <table class="table" ref="table">
       <thead>
         <tr>
@@ -16,7 +15,7 @@
           <td v-for="item1 in item.point" :key="item1">{{item1}}</td>
         </tr>
         <tr>
-          <td>Result:</td>
+          <td><span v-if="checkMax === true">Result:</span></td>
           <td></td>
           <td v-for="item in result" :key="item">
             <div v-if="Math.max(...result) === item">
@@ -48,6 +47,7 @@ export default {
         data: Object,
         result: Array,
         maxValue: Number,
+        checkMax: Boolean,
     }
 }
 </script>
