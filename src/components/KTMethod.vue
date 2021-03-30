@@ -10,19 +10,19 @@
             v-model="alternative"
           />
           <input
-            class="form-control"
+            class="form-control mt-2"
             type="text"
             placeholder="Zapišite parametre"
             v-model="parameter"
           />
           <input
-            class="form-control"
+            class="form-control mt-2"
             type="text"
             placeholder="Zapišite uteži"
             v-model="weight"
           />
           <input
-            class="form-control"
+            class="form-control mt-2"
             type="text"
             placeholder="Zapišite točke"
             v-model="point"
