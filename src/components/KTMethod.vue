@@ -47,12 +47,12 @@
     </div>
     <div class="row">
       <div class="col-12 col-lg-12">
-        <Graph :data="data" :result="result" />
+        <Graph :data="data" :result="result" :checkMax="check" />
       </div>
     </div>
     <div class="row">
-      <Show />
       <div class="col-12 col-lg-12" v-if="gen === true">
+        <h3>Primerjava alternativ</h3>
         <WindGraph
           :data="altArr"
           :labels="altTitle"
@@ -61,6 +61,7 @@
           :borderColor="'rgb(23, 79, 45)'"
           :type="'pie'"
         />
+        <h3>Parametri</h3>
         <WindGraph
           :data="paramArr"
           :labels="paramTitle"
@@ -69,6 +70,12 @@
           :borderColor="'rgb(77, 39, 107)'"
           :type="'pie'"
         />
+        <h3>Prikaz občutljivost izbranega parametra</h3>
+        <apexchart
+          type="line"
+          :options="chartOptions"
+          :series="seriesData"
+        ></apexchart>
       </div>
     </div>
   </div>
@@ -78,14 +85,12 @@
 import Graph from "./Table";
 import MethodKT from "../functions/MethodKT.js";
 import WindGraph from "./Chart";
-import Show from "./Show";
 
 export default {
   name: "KTMethod",
   components: {
     Graph,
     WindGraph,
-    Show,
   },
   data() {
     return {
@@ -103,6 +108,25 @@ export default {
       paramArr: [],
       paramTitle: [],
       paraTitle: [],
+      seriesData: [],
+      chartOptions: {
+        chart: {
+          id: "vuechart-example",
+        },
+        xaxis: {
+          categories: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+        },
+      },
+      series: [
+        {
+          name: "series-1",
+          data: [30, 40, 35, 50, 49, 60, 70, 91],
+        },
+        {
+          name: "series-1",
+          data: [10, 70, 35, 50, 49, 60, 70, 91],
+        },
+      ],
     };
   },
   methods: {
@@ -126,10 +150,10 @@ export default {
       this.altTitle = MethodKT.GetAltTitle();
       this.paramArr = MethodKT.GetParamArray();
       this.paramTitle = MethodKT.GetParamTitle();
-      MethodKT.SelectedParam(this.paramSelector);
+      this.seriesData = MethodKT.SelectedParam(this.paramSelector);
+      console.log(this.seriesData);
       this.gen = true;
     },
   },
-  props: {},
 };
 </script>
